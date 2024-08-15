@@ -11,7 +11,7 @@
     "env": {
         "APP_ENV": "production",
         "APP_DEBUG": "true",
-        "APP_URL": "https://yourprojectdomain.com",
+        "APP_URL": "https://pos-weld.vercel.app",
         "APP_KEY": "base64:6/CBENE5FrY88FWgQIXvuAPks8q9v03w+ZDk+tUgmfw=",
 
         "APP_CONFIG_CACHE": "/tmp/config.php",
