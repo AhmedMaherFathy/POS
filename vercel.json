@@ -14,7 +14,12 @@
     "use": "@vercel/static"
     }
 ],
-    "routes": [{
+    "routes": [
+        {
+            "src": "/vendor/telescope/(.*)",
+            "dest": "/public/vendor/telescope/$1"
+        },
+        {
         "src": "/(.*)",
         "dest": "/api/index.php"
     }],
