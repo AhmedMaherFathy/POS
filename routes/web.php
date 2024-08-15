@@ -4,7 +4,13 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
 
 Route::get('/', function () {
-    return "view('welcome')";
+    $path = public_path('media/default/store.png');
+
+    if (file_exists($path)) {
+        return response()->file($path);
+    }
+
+    abort(404);
 });
 
 Route::get('/home', function () {
