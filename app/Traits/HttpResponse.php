@@ -15,7 +15,7 @@ trait HttpResponse
         LengthAwarePaginator $collection,
         string $resourceClass,
         bool $isCollection = false,
-        string $message = 'Data Fetched Successfully',
+        string $message = 'fetched',
         int $code = Response::HTTP_OK
     ): JsonResponse {
         $data = [
@@ -31,7 +31,7 @@ trait HttpResponse
                 'from' => $collection->firstItem(),
                 'last_page' => $collection->lastPage(),
             ],
-            'message' => $message,
+            'message' => translate_word($message),
             'code' => $code,
             'type' => 'success',
         ];

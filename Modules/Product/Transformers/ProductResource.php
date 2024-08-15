@@ -29,7 +29,7 @@ class ProductResource extends JsonResource
     {
         $imageUrl = $this->getFirstMediaUrl("images");
 
-        $defaultImageUrl = asset('media/default/store.png');
+        $defaultImageUrl = asset('public/media/default/store.png');
 
         return $imageUrl ?: $defaultImageUrl;
     }

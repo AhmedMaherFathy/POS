@@ -6,4 +6,5 @@ return[
     'deleted' => 'deleted successfully',
     'not_found' => 'not found',
     'product' => 'Product',
+    'fetched' => 'Data Fetched Successfully'
 ];

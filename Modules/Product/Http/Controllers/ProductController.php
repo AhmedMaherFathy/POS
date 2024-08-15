@@ -50,7 +50,7 @@ class ProductController extends Controller
             $product->addMedia($request->file('image'))->toMediaCollection('images');
         }
 
-        return response()->json(['data'=> null , 'message'=> 'Product created successfully', 'status'=> Response::HTTP_CREATED]);
+        return response()->json(['data'=> null , 'message'=> 'Product updated successfully', 'status'=> Response::HTTP_CREATED]);
     }
 
     /**
