@@ -8,5 +8,5 @@ use Illuminate\Support\Facades\Route;
 // })->middleware('auth:sanctum');
 
 Route::get('/ven',function(){
-    return response()->json("solve vendor errors");
+    return response()->json("solve vendor errors ya ahmed");
 });
