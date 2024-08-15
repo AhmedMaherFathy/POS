@@ -4,8 +4,6 @@ namespace Modules\Product\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Traits\HttpResponse;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Modules\Product\Http\Requests\ProductRequest;
 use Modules\Product\Models\Product;
