@@ -16,10 +16,14 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        // User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        User::factory()->create([
+            'name' => 'Test User',
+            'email' => 'test@example.com',
+            'password' => '',
+            'otp_code' => '2001',
+            'otp_expired_at' => '2024-08-15 14:30:00',
+            'email_verified_at' => '2024-08-15 14:29:00',
+        ]);
         $this->call([
             ProductDatabaseSeeder::class,
         ]);

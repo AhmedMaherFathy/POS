@@ -17,7 +17,7 @@ use function Pest\Laravel\get;
 
 class AuthController extends Controller
 {
-    use TranslationHelper;
+
     public function register(AuthRequest $request)
     {
         $validated = $request->validated();
