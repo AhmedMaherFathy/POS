@@ -2,11 +2,12 @@
 
 namespace Modules\Product\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use App\Traits\HttpResponse;
 use Illuminate\Http\Response;
-use Modules\Product\Http\Requests\ProductRequest;
 use Modules\Product\Models\Product;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
+use Modules\Product\Http\Requests\ProductRequest;
 use Modules\Product\Transformers\ProductResource;
 
 class ProductController extends Controller
@@ -59,6 +60,7 @@ class ProductController extends Controller
     public function show($id)
     {
         $product = Product::find($id);
+        return $product->getFirstMedia("images")->getPath();
 
         if($product)
             return $this->successResponse(ProductResource::make($product));
