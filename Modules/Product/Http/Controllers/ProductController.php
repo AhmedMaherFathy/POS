@@ -60,7 +60,7 @@ class ProductController extends Controller
     public function show($id)
     {
         $product = Product::find($id);
-        return $product->getFirstMedia("images")->getPath();
+        return $product->getFirstMedia("images")->getUrl();
 
         if($product)
             return $this->successResponse(ProductResource::make($product));
