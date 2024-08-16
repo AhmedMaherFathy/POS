@@ -4,6 +4,19 @@
     "functions": {
         "api/index.php": { "runtime": "vercel-php@0.6.0" }
     },
+    "builds": [
+        {
+            "src": "api/index.php",
+            "use": "@vercel/php",
+            "config": {
+                "includeFiles": [
+                    "composer.json",
+                    "composer.lock",
+                    "vendor/**"
+                ]
+            }
+        }
+    ],
     "routes": [
         {
             "src": "/vendor/telescope/(.*)",
@@ -30,5 +43,16 @@
         "CACHE_DRIVER": "array",
         "LOG_CHANNEL": "stderr",
         "SESSION_DRIVER": "cookie"
+    },
+    "build": {
+        "env": {
+            "COMPOSER_ALLOW_SUPERUSER": "1"
+        },
+        "commands": [
+            {
+                "command": "composer dump-autoload",
+                "cwd": "/"
+            }
+        ]
     }
 }
