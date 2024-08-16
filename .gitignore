@@ -19,11 +19,3 @@ yarn-error.log
 /.idea
 /.vscode
 clearCache.sh
-# Ignore everything in the public/media directory
-public/media/*
-
-# Except the folder named 'default'
-!public/media/default/
-
-# Ensure contents of the 'default' folder are not ignored
-!public/media/default/**
