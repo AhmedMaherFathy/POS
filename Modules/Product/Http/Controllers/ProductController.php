@@ -26,6 +26,7 @@ class ProductController extends Controller
         //                         'message'=> translate_success_message('product', 'created'),
         //                         'status'=> Response::HTTP_OK]);
 
+        return response()->json(["message"=> translate_word("fetched")]);
         return $this->paginatedResponse($products ,ProductResource::class);
     }
 
