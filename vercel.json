@@ -14,9 +14,6 @@
             "dest": "/api/index.php"
         }
     ],
-    "files": [
-            "app/Helpers/TranslationHelper.php"
-        ],
     "env": {
         "APP_ENV": "production",
         "APP_DEBUG": "true",
