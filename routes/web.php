@@ -24,6 +24,7 @@ Route::get('/log-routes', function () {
 });
 
 Route::get('/run-command', function () {
-    Artisan::call('migrate:fresh');
-    return 'Command executed';
+    $exitCode = Artisan::call('telescope:publish');
+    $output = Artisan::output();
+    return "Exit code: $exitCode<br>Output: <pre>$output</pre>";
 });
