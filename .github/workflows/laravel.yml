@@ -8,7 +8,6 @@ on:
 
 jobs:
   laravel-tests:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -16,8 +15,9 @@ jobs:
       with:
         php-version: '8.0'
     - uses: actions/checkout@v4
-    - name: Run Composer dump-autoload
-      run: composer dump-autoload
+    - name: Install Dependencies
+      run: composer install --no-dev --prefer-dist --no-interaction --optimize-autoloader
+    - name: Run Artisan Commands
+      run: php artisan storage:link
     - name: Directory Permissions
       run: chmod -R 777 storage bootstrap/cache
-    
