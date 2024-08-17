@@ -28,3 +28,8 @@ Route::get('/run-command', function () {
     $output = Artisan::output();
     return "Exit code: $exitCode<br>Output: <pre>$output</pre>";
 });
+
+
+Route::get('/phpinfo', function(){
+    phpinfo();
+});
