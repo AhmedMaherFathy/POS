@@ -57,8 +57,9 @@ return [
         ],
         'media' => [
             'driver' => 'local',
-            'root'   => env('APP_ENV') === 'production' ? '/tmp/media' : public_path('media'),
-            'url'    => env('APP_ENV') === 'production' ? env('APP_URL').'/media' : env('APP_URL').'/media',
+            'root' => storage_path('app/public'),
+            'url' => env('APP_URL') . '/storage',
+            'visibility' => 'public',
         ],
 
 
