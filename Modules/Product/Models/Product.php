@@ -39,5 +39,21 @@ class Product extends Model implements HasMedia
             ->singleFile();
     }
 
+    public function image()
+    {
+        return $this->mediaRet();
+    }
+
+    public function mediaRet()
+    {
+        return Product::query()
+            ->media()
+            ->where('collection_name', 'images')
+            ->select(
+                array_merge(
+                    ['id', 'model_id', 'disk', 'file_name', 'mime_type']
+                )
+            );
+    }
 
 }

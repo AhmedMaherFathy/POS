@@ -27,7 +27,7 @@ class ProductResource extends JsonResource
 
     private function getImageUrl()
     {
-        $imageUrl = $this->getFirstMediaUrl("images");
+        $imageUrl = $this->getMedia("images");
 
         $defaultImageUrl = asset('public/media/default/store.png');
 
