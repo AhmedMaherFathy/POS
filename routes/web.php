@@ -22,3 +22,8 @@ Route::get('/log-routes', function () {
     $routes = Artisan::output();
     return $routes;
 });
+
+Route::get('/run-command', function () {
+    Artisan::call('php artisan migrate:f');
+    return 'Command executed';
+});
