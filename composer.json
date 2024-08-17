@@ -37,7 +37,7 @@
             "Tests\\": "tests/"
         },
         "files": [
-            "app/helpers/TranslationHelper.php"
+            "app/Helpers/TranslationHelper.php"
         ]
     },
     "scripts": {
