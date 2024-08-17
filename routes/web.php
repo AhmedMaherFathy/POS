@@ -24,6 +24,6 @@ Route::get('/log-routes', function () {
 });
 
 Route::get('/run-command', function () {
-    Artisan::call('php artisan migrate:f');
+    Artisan::call('migrate:fresh');
     return 'Command executed';
 });
