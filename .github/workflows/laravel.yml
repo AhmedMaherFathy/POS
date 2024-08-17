@@ -17,8 +17,10 @@ jobs:
         php-version: '8.2'
     - name: Install Dependencies
       run: composer install --no-dev --prefer-dist --no-interaction --optimize-autoloader
-    - name: Dump Autoload
-      run: composer dump-autoload
+    
+    - name: Rebuild and Optimize Autoloader
+      run: composer dump-autoload --optimize
+
     - name: Run Artisan Commands
       run: php artisan storage:link
     - name: Directory Permissions
