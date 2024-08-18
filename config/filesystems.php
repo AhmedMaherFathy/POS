@@ -57,7 +57,7 @@ return [
         ],
         'media' => [
             'driver' => 'local',
-            'root' => '/tmp/media',
+            'root' => '/media',
             'url' => env('APP_URL') . '/media',
             'visibility' => 'public',
         ],
