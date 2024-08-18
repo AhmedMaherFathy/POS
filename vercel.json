@@ -14,7 +14,7 @@
             "dest": "/api/index.php"
         },
         {
-            "src": "/storage/(.*)",
+            "src": "/media/(.*)",
             "dest": "/public/media/$1"
         }
     ],
