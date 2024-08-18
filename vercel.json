@@ -10,7 +10,7 @@
         },
         {
             "src": "/media/(.*)",
-            "dest": "/tmp/public/media/$1"
+            "dest": "/tmp/media/$1"
         },
         {
             "src": "/(.*)",
