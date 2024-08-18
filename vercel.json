@@ -9,7 +9,7 @@
             "dest": "/public/vendor/telescope/$1"
         },
         {
-            "src": "/tmp/media/(.*)",
+            "src": "/media/(.*)",
             "dest": "/tmp/public/media/$1"
         },
         {
