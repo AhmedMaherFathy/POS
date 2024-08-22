@@ -21,16 +21,16 @@ class ProductResource extends JsonResource
                 "buying_price" => $this->buying_price,
                 "quantity" => $this->quantity,
                 "discount" => $this->discount,
-                "image" => $this->fetchFirstMedia()['file_url'],
+                "image" => $this->getImageUrl(),
         ];
     }
 
-    // private function getImageUrl()
-    // {
-    //     $imageUrl = $this->getMedia("images");
+    private function getImageUrl()
+    {
+        $imageUrl = $this->fetchFirstMedia()['file_url'] ?? null;
 
-    //     $defaultImageUrl = asset('public/media/default/store.png');
+        $defaultImageUrl = asset('public/media/default/store.png');
 
-    //     return $imageUrl ?: $defaultImageUrl;
-    // }
+        return $imageUrl ?: $defaultImageUrl;
+    }
 }
