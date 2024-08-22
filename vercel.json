@@ -1,17 +1,9 @@
 {
     "version": 2,
     "functions": {
-        "api/index.php": { "runtime": "vercel-php@0.6.1" }
+        "api/index.php": { "runtime": "vercel-php@0.7.1" }
     },
     "routes": [
-        {
-            "src": "/vendor/telescope/(.*)",
-            "dest": "/public/vendor/telescope/$1"
-        },
-        {
-            "src": "/media/(.*)",
-            "dest": "/tmp/media/$1"
-        },
         {
             "src": "/(.*)",
             "dest": "/api/index.php"
