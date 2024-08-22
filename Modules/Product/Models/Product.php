@@ -3,16 +3,14 @@
 namespace Modules\Product\Models;
 
 use App\Traits\PaginatedCollection;
-use Illuminate\Database\Eloquent\Builder;
+use CloudinaryLabs\CloudinaryLaravel\MediaAlly;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Modules\Product\Database\Factories\ProductFactory;
-use Spatie\MediaLibrary\HasMedia;
-use Spatie\MediaLibrary\InteractsWithMedia;
 
-class Product extends Model implements HasMedia
+class Product extends Model
 {
-    use HasFactory , PaginatedCollection, InteractsWithMedia;
+    use HasFactory , PaginatedCollection, MediaAlly;
 
     /**
      * The attributes that are mass assignable.
@@ -32,28 +30,27 @@ class Product extends Model implements HasMedia
         return ProductFactory::new();
     }
 
-    public function registerMediaCollections(): void
-    {
-        $this
-            ->addMediaCollection('images')
-            ->singleFile();
-    }
+    // public function registerMediaCollections(): void
+    // {
+    //     $this
+    //         ->addMediaCollection('images')
+    //         ->singleFile();
+    // }
 
-    public function image()
-    {
-        return $this->mediaRet();
-    }
+    // public function image()
+    // {
+    //     return $this->mediaRet();
+    // }
 
-    public function mediaRet()
-    {
-        return Product::query()
-            ->media()
-            ->where('collection_name', 'images')
-            ->select(
-                array_merge(
-                    ['id', 'model_id', 'disk', 'file_name', 'mime_type']
-                )
-            );
-    }
-
+    // public function mediaRet()
+    // {
+    //     return Product::query()
+    //         ->media()
+    //         ->where('collection_name', 'images')
+    //         ->select(
+    //             array_merge(
+    //                 ['id', 'model_id', 'disk', 'file_name', 'mime_type']
+    //             )
+    //         );
+    // }
 }

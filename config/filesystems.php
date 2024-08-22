@@ -57,12 +57,17 @@ return [
         ],
         'media' => [
             'driver' => 'local',
-            'root' => '/media',
+            'root' => '/tmp/media',
             'url' => env('APP_URL') . '/media',
             'visibility' => 'public',
         ],
-
-
+        
+        'vercel_blob' => [
+            'driver' => 'custom',
+            'root' => '/tmp/media',
+            'url' => env('APP_URL') ,
+            'visibility' => 'public',
+        ],
     ],
 
     /*

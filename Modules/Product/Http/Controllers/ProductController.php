@@ -38,7 +38,7 @@ class ProductController extends Controller
         $product = Product::create($request->validated());
 
         if ($request->hasFile('image')) {
-            $product->addMedia($request->file('image'))->toMediaCollection('images');
+            $product->attachMedia($request['image']);
         }
 
         return response()->json(['data'=> null , 'message'=> 'Product created successfully', 'status'=> Response::HTTP_CREATED]);

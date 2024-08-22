@@ -6,13 +6,12 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
+        "cloudinary-labs/cloudinary-laravel": "^2.2",
         "hammerstone/fast-paginate": "*",
         "laravel/framework": "^11.9",
         "laravel/sanctum": "^4.0",
-        "laravel/telescope": "^5.1",
         "laravel/tinker": "^2.9",
         "nwidart/laravel-modules": "^11.0",
-        "spatie/laravel-medialibrary": "^11.7",
         "spatie/laravel-translatable": "^6.7"
     },
     "require-dev": {
