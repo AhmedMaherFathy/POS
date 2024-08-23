@@ -14,8 +14,8 @@ class ProductResource extends JsonResource
     {
         $imageUrl = $this->fetchFirstMedia()['file_url'] ?? null;
 
-        $defaultImageUrl = asset('public/media/default/store.png');
-        // info($defaultImageUrl); die;
+        // $defaultImageUrl = asset('public/media/default/store.png');
+        // info(env('APP_URL').'/public/media/default/store.png'); die;
         // return $imageUrl ?: $defaultImageUrl;
         return [
                 "id" => $this->id,
@@ -26,7 +26,7 @@ class ProductResource extends JsonResource
                 "buying_price" => $this->buying_price,
                 "quantity" => $this->quantity,
                 "discount" => $this->discount,
-                "image" => $imageUrl ?: $defaultImageUrl,
+                "image" => $imageUrl ?: env('APP_URL').'/public/media/default/store.png',
         ];
     }
 
