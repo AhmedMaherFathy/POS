@@ -1,5 +1,7 @@
 <?php
 
+use CloudinaryLabs\CloudinaryLaravel\CloudinaryServiceProvider;
+
 return [
 
     /*
@@ -121,6 +123,14 @@ return [
     'maintenance' => [
         'driver' => env('APP_MAINTENANCE_DRIVER', 'file'),
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
+    ],
+
+    'providers' => [
+        CloudinaryServiceProvider::class,
+    ],
+
+    'aliases' => [
+        'Cloudinary' => CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary::class,
     ],
 
 ];
