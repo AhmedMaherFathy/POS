@@ -12,6 +12,11 @@ class ProductResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
+        $imageUrl = $this->fetchFirstMedia()['file_url'] ?? null;
+
+        $defaultImageUrl = asset('public/media/default/store.png');
+        // info($defaultImageUrl); die;
+        // return $imageUrl ?: $defaultImageUrl;
         return [
                 "id" => $this->id,
                 "name" => $this->name,
@@ -21,16 +26,8 @@ class ProductResource extends JsonResource
                 "buying_price" => $this->buying_price,
                 "quantity" => $this->quantity,
                 "discount" => $this->discount,
-                "image" => $this->getImageUrl(),
+                "image" => $imageUrl ?: $defaultImageUrl,
         ];
     }
 
-    private function getImageUrl()
-    {
-        $imageUrl = $this->fetchFirstMedia()['file_url'] ?? null;
-
-        $defaultImageUrl = asset('public/media/default/store.png');
-
-        return $imageUrl ?: $defaultImageUrl;
-    }
 }
