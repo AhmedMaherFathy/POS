@@ -18,10 +18,11 @@ jobs:
     - name: Install Dependencies
       run: composer install --no-dev --prefer-dist --no-interaction --optimize-autoloader
     
-
-
     - name: Run Artisan Commands
       run: php artisan storage:link
+    - name: Publish Cloudinary Config
+      run: php artisan vendor:publish --provider="CloudinaryLabs\CloudinaryLaravel\CloudinaryServiceProvider" --tag="cloudinary-laravel-config"
+      
     - name: Directory Permissions
       run: chmod -R 777 storage public bootstrap/cache
     - name: Optimize
