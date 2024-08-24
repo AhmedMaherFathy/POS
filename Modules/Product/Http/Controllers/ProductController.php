@@ -2,12 +2,14 @@
 
 namespace Modules\Product\Http\Controllers;
 
+use Cloudinary\Cloudinary;
 use App\Traits\HttpResponse;
 use Illuminate\Http\Response;
 use Modules\Product\Models\Product;
 use App\Http\Controllers\Controller;
 use Modules\Product\Http\Requests\ProductRequest;
 use Modules\Product\Transformers\ProductResource;
+
 class ProductController extends Controller
 {
     /**
@@ -19,11 +21,6 @@ class ProductController extends Controller
     {
         $products = Product::latest()->paginatedCollection();
 
-        // return response()->json(['data'=> ProductResource::collection($products),
-        //                         'message'=> translate_success_message('product', 'created'),
-        //                         'status'=> Response::HTTP_OK]);
-
-        // return response()->json(["message"=> translate_word("fetched")]);
         return $this->paginatedResponse($products ,ProductResource::class);
     }
 
@@ -35,51 +32,41 @@ class ProductController extends Controller
         $product = Product::create($request->validated());
 
         if ($request->hasFile('image')) {
-            $product->attachMedia($request['image']);
+            $product->attachMedia($request->validated('image'));
         }
 
-        return response()->json(['data'=> null , 'message'=> 'Product created successfully', 'status'=> Response::HTTP_CREATED]);
+        return response()->json(['data'=> null , 'message'=> translate_success_message('product', 'created'), 'status'=> Response::HTTP_CREATED]);
     }
     
     public function update(ProductRequest $request , $id)
     {
         $product = Product::findOrFail($id);
         $product->update($request->validated());
-
+        // info($request->validated('image'); die;
         if ($request->hasFile('image')) {
-            $product->addMedia($request->file('image'))->toMediaCollection('images');
+            $product->updateMedia($request->validated('image'));
         }
 
-        return response()->json(['data'=> null , 'message'=> 'Product updated successfully', 'status'=> Response::HTTP_CREATED]);
+        return response()->json(['data'=> null , 'message'=> translate_success_message('product', 'updated'), 'status'=> Response::HTTP_CREATED]);
     }
 
-    /**
-     * Show the specified resource.
-     */
     public function show($id)
     {
         $product = Product::find($id);
-        return $product->getFirstMedia("images")->getUrl();
 
         if($product)
-            return $this->successResponse(ProductResource::make($product));
+            return $this->successResponse(ProductResource::make($product),message:translate_success_message('product','fetched'));
         else
             return $this->successResponse(message:translate_success_message('product','not_found'));
         // return response()->json(['data'=> $product , 'message'=> 'Product Founded successfully', 'status'=> Response::HTTP_FOUND]);
     }
 
-    // public function update(Request $request, $id): RedirectResponse
-    // {
-    //     //
-    // }
-
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy($id)
     {
-        Product::findOrFail($id)->delete();
+        $product = Product::findOrFail($id);
+        $product->detachMedia();
+        $product->delete();
 
-        return response()->json(['data'=> null , 'message'=> 'Product deleted successfully', 'status'=> Response::HTTP_OK]);
+        return $this->successResponse(message:translate_success_message('product','deleted'));
     }
 }

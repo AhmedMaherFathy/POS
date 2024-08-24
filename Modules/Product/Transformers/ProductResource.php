@@ -29,5 +29,4 @@ class ProductResource extends JsonResource
                 "image" => $imageUrl ?: env('APP_URL').'/public/media/default/store.png',
         ];
     }
-
 }
