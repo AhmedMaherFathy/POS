@@ -24,7 +24,7 @@ class ProductRequest extends FormRequest
             'selling_price' => 'min:1|'. $value,
             'buying_price' => 'min:1|'. $value,
             'quantity' => 'min:1|integer|'. $value,
-            'discount' => 'min:0|sometimes|integer'. $value,
+            'discount' => 'min:0|sometimes|integer',
             'image' => 'image|mimes:png,jpg,jpeg|max:10240|'. $value,  // 10MB
         ];
     }

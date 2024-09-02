@@ -2,7 +2,6 @@
 
 namespace Modules\Product\Http\Controllers;
 
-use Cloudinary\Cloudinary;
 use App\Traits\HttpResponse;
 use Illuminate\Http\Response;
 use Modules\Product\Models\Product;
