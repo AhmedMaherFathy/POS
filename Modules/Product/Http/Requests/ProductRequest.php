@@ -41,6 +41,4 @@ class ProductRequest extends FormRequest
     {
         return true;
     }
-
-    
 }

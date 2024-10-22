@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Auth\Providers;
+namespace Modules\Firebase\Providers;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
@@ -34,7 +34,7 @@ class RouteServiceProvider extends ServiceProvider
      */
     protected function mapWebRoutes(): void
     {
-        Route::middleware('web')->group(module_path('Auth', '/routes/web.php'));
+        Route::middleware('web')->group(module_path('Firebase', '/Routes/web.php'));
     }
 
     /**
@@ -44,6 +44,6 @@ class RouteServiceProvider extends ServiceProvider
      */
     protected function mapApiRoutes(): void
     {
-        Route::middleware('api')->group(module_path('Auth', '/routes/api.php'));
+        Route::middleware('api')->prefix('api')->name('api.')->group(module_path('Firebase', '/Routes/api.php'));
     }
 }

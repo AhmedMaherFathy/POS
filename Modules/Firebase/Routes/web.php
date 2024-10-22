@@ -1,8 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Modules\Auth\Http\Controllers\AuthController;
-use Illuminate\Foundation\Auth\EmailVerificationRequest;
+use Modules\Firebase\Http\Controllers\FirebaseController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +14,6 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
 |
 */
 
-// Route::group([], function () {
-//     Route::resource('auth', AuthController::class)->names('auth');
-// });
-
+Route::group([], function () {
+    Route::resource('firebase', FirebaseController::class)->names('firebase');
+});

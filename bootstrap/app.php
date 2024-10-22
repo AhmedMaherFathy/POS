@@ -2,6 +2,7 @@
 
 use App\Http\Middleware\AcceptApplicationJSON;
 use App\Http\Middleware\LocaleMiddleware;
+use Illuminate\Auth\Middleware\EnsureEmailIsVerified;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
@@ -23,10 +24,15 @@ return Application::configure(basePath: dirname(__DIR__))
         ]);
 
         $middleware->use([
-            StartSession::class,
+            // StartSession::class,
             // ShareErrorsFromSession::class,
+            // EnsureEmailIsVerified::class,
         ]);
         
+        $middleware->alias([
+            // 'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+            //
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //
