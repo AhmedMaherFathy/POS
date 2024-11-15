@@ -1,5 +1,7 @@
 {
     "Auth": true,
     "Product": true,
-    "Firebase": true
+    "Firebase": true,
+    "Realtime": true,
+    "PDF": true
 }
